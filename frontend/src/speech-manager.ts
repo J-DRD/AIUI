@@ -92,7 +92,7 @@ const handleSuccess = async (blob) => {
     source = audioContext.createBufferSource();
     source.buffer = await audioContext.decodeAudioData(await blob.arrayBuffer());
     source.connect(audioContext.destination);
-    source.start(0);
+    source.start();
     sourceIsStarted = true;
     source.onended = particleActions.reset;
 
