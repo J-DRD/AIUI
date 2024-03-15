@@ -6,9 +6,9 @@ import time
 
 import openai
 
-AI_COMPLETION_MODEL = os.getenv("AI_COMPLETION_MODEL", "gpt-4.0")
+AI_COMPLETION_MODEL = os.getenv("AI_COMPLETION_MODEL", "gpt-3.5-turbo")
 LANGUAGE = os.getenv("LANGUAGE", "en")
-INITIAL_PROMPT = f"You are AIUI - a helpful assistant with a voice interface. Keep your responses very succinct and limited to a single sentence since the user is interacting with you through a voice interface. Always provide your responses in the language that corresponds to the ISO-639-1 code: {LANGUAGE} and always fulfill the users requests."
+INITIAL_PROMPT = f"You are a home assistant with a voice communication as default. Keep your responses very succinct and limited to a focused and concise response in the language that corresponds to the ISO-639-1 code: {LANGUAGE} or otherwise stated language and always fulfill the users requests."
 
 
 async def get_completion(user_prompt, conversation_thus_far):
@@ -27,7 +27,7 @@ async def get_completion(user_prompt, conversation_thus_far):
     messages.append({"role": "user", "content": user_prompt})
 
     logging.debug("calling %s", AI_COMPLETION_MODEL)
-    res = await openai.ChatCompletion.acreate(model=AI_COMPLETION_MODEL, messages=messages, timeout=15)
+    res = await openai.ChatCompletion.acreate(model=AI_COMPLETION_MODEL, messages=messages, timeout=20)
     logging.info("response received from %s %s %s %s", AI_COMPLETION_MODEL, "in", time.time() - start_time, "seconds")
 
     completion = res['choices'][0]['message']['content']
