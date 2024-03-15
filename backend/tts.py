@@ -11,10 +11,10 @@ from elevenlabs import generate, save
 from util import delete_file
 
 LANGUAGE = os.getenv("LANGUAGE", "en")
-TTS_PROVIDER = os.getenv("TTS_PROVIDER", "EDGETTS")
+TTS_PROVIDER = os.getenv("TTS_PROVIDER", "ELEVENLABS")
 
-ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", None)
-ELEVENLABS_VOICE = os.getenv("ELEVENLABS_VOICE", "EXAVITQu4vr4xnSDxMaL")
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "7e9c462557cf886abc09726a6d739812")
+ELEVENLABS_VOICE = os.getenv("ELEVENLABS_VOICE", "PBBKT0dOHd60xVc6gnRm")
 EDGETTS_VOICE = os.getenv("EDGETTS_VOICE", "en-US-EricNeural")
 
 
