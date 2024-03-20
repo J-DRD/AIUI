@@ -5,10 +5,10 @@ import {onMisfire, onSpeechEnd, onSpeechStart} from "../speech-manager.ts";
 export const useMicVADWrapper = (onLoadingChange) => {
     const micVAD = useMicVAD(
         {
-            preSpeechPadFrames: 8,
-            positiveSpeechThreshold: 0.80,
-            negativeSpeechThreshold: 0.60,
-            minSpeechFrames: 2,
+            preSpeechPadFrames: 7,
+            positiveSpeechThreshold: 0.90,
+            negativeSpeechThreshold: 0.45,
+            minSpeechFrames: 3,
             startOnLoad: true,
             onSpeechStart,
             onSpeechEnd,
